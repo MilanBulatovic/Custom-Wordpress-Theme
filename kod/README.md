@@ -1,1 +1,3 @@
 #Custom News Portal Wordpress Theme for client
+
+#Responsivness in porgress...
