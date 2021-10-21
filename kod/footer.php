@@ -23,6 +23,7 @@
 						endif; ?>
 				<div>
 				<?php get_theme_mod('')?>
+				<?php echo 'test'?>
 				</div>
 					
 				</div>
