@@ -1,0 +1,118 @@
+#primary {
+    padding-bottom: 50px;
+
+    .category-title {
+      margin-bottom: 50px;
+
+      a {
+        color: $crvena;
+        //text-transform: uppercase;
+      }
+    }
+    
+    .entry-header {
+
+        .entry-title {
+            max-width: 750px;
+        }
+        
+        .entry-meta {
+            display: flex;
+            position: relative;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+                
+            & p, .category {
+                position: relative;
+                font-size: 1.2rem;
+                margin-right: 10px;
+
+                &:before {
+                    @include meta-separator;
+                    margin-right: 10px;
+                }
+            }
+            
+            
+            .avatar {
+                border-radius: 50%;
+                margin-right: 5px;
+                display: flex;
+                align-items: center;
+            }
+
+            .author {
+                margin-right: 5px;
+                font-size: 1.4rem;
+                //font-weight: 600;
+            }
+
+            .time-stamp, 
+            .entry-date, 
+            .bi-chat-right-text-fill {
+                margin-left: 10px;
+            }
+
+            .category a {
+                color: $crvena;
+                font-weight: 600;
+                margin-left: 5px;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .date {
+                margin-left: 10px;
+            }
+
+            .category span {
+                margin-left: 10px;                
+            }
+
+            .comment-number {
+                margin-left: 5px;
+            }
+        }
+
+    }
+
+    article {
+        padding-right:20px;
+
+        .post-thumbnail {
+            height: 500px;
+
+            img {
+                width: 100%;
+            }
+        }
+        .entry-content {
+            margin-top: 60px;
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
+
+        .tags {
+            display: flex;
+            padding: 0 20px;
+            a {
+                padding: 5px 16px;
+                background-color: $crvena;
+                font-size: 1.4rem;
+                color: white;
+                font-weight: 500;
+                margin-right: 10px;
+                border-radius: 3px;
+                //@include shadow;
+            }
+        }
+    }
+
+    .sidebar-main-wrapper {
+        padding-left: 60px;
+    }
+}  
+

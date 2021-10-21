@@ -1,0 +1,111 @@
+footer.site-footer {
+    width:100%;
+    background-color: $footer-bg;
+    position: relative;
+    padding-top: 80px;
+    //padding-bottom: 80px;
+
+    .footer-logo {
+        img {
+            height: auto;
+        }
+    }
+
+    .left-divider {
+        position: relative;
+        padding-left: 20px;
+        &:before {
+            content: '';
+            width: 1px;
+            height: 100%;
+            background: hsla(0, 0%, 22%, 1);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &:before {
+        content: '';
+        @include red-divider-footer(100%, 6px, $crvena);
+        position: absolute;
+        top:0;
+
+    }
+
+    .footer-headline {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 22px;
+        display: inline-block;
+        font-size: 1.4rem;
+    }
+
+    .impressum:hover{
+        text-decoration: underline;
+    }
+
+
+    span, .lokacija {
+        color: $footer-links;
+        text-transform: initial;
+        font-weight: 400;
+    }
+
+    .lokacija {
+        text-transform: capitalize;
+        font-size: 1.6rem;
+        color: $crvena;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+
+        li {
+            list-style: none;
+
+            a {
+                color: $footer-links;
+                font-size: 1.6rem;
+                &:hover {
+                    color:$crvena;
+                    text-decoration: underline;
+                }
+            }
+        }    
+    }
+
+  
+
+    .bottom-footer {
+        background-color: hsla(0, 0%, 22%, 1);
+        padding: 30px 0;
+        margin-top: 80px;
+
+        .copyright {
+          color: $footer-links;
+          font-size: 1.6rem;
+        }
+        
+        ul {
+            flex-direction: row;
+            a {
+                font-size: inherit;
+            }
+        }
+    }
+
+   
+
+}

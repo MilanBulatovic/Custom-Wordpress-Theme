@@ -1,0 +1,20 @@
+a {
+	color: black;
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: black;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+

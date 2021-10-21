@@ -1,0 +1,52 @@
+// stylelint-disable value-keyword-case
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+
+$font_main: "Raleway", sans-serif;
+
+h1, h2, h3, h4, h5, h6, p, a {
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 48px;
+}
+
+h2 {
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 40.8px;
+}
+
+h3 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 33.6px;
+}
+
+h4 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 28.8px;
+}
+
+h5 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 24px;
+}
+
+h6 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 21.6px;
+}
+
+
+p {
+    font-size: 1.6rem;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+}

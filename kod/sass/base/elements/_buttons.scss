@@ -1,0 +1,32 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"], 
+input[type="email"],
+input[type="text"],
+textarea,
+::placeholder {
+	
+	color: white;
+	//text-transform: uppercase;
+	font-weight: 600;
+	font-size: 1.2rem;
+	
+
+
+	&:focus {
+		border-color: $shadow-color;
+		box-shadow: 0 0 0 1px $shadow-color;
+	}
+}
+
+textarea {
+	&:focus {
+		border-color: $shadow-color !important;
+		box-shadow: 0 0 0 1px $shadow-color !important;
+	}
+}
+
+button {
+	text-transform: uppercase;
+}

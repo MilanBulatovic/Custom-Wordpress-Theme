@@ -1,0 +1,44 @@
+.kod-section-wrapper {
+    padding: 8px;
+}
+
+.kod-cards {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 12px;
+    margin: 0 auto;
+    @include shadow;
+    position: relative;
+
+    .p-icon {
+        position: absolute;
+        top:6%;
+        left:5%;
+        display: inline-flex;
+        width: 25px;
+        height: auto;
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+.kod-press-clip {
+    width: 250px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    //margin-bottom: 12px;
+    @include shadow;
+}
+
+img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

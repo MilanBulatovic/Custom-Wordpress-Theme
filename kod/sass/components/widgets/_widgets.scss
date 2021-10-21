@@ -1,0 +1,31 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	// Make sure select elements fit in widgets.
+	select {
+		max-width: 100%;
+	}
+}
+
+.sidebar-main-wrapper {
+	padding: 0 30px;
+	.sidebar-wrapper {
+		.post-sidebar-content {
+			display: flex;
+			margin-bottom: 10px;
+
+			& > a {
+				display: contents;
+			}
+
+			img {
+				@include shadow;
+			}
+
+			.post-title-date-wrapper {
+				padding-left: 10px;
+			}
+		}
+		
+	}
+}

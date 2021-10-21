@@ -1,0 +1,15 @@
+.divider {
+	@include grey-divider;
+}
+
+.sidebar-divider {
+	margin: 30px 0;
+}
+
+.red-divider {
+	@include red-divider;
+}
+
+.divider-single-page {
+	@include grey-divider-single;
+}
