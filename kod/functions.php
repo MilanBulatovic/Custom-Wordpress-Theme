@@ -250,11 +250,12 @@ add_filter( 'excerpt_more', 'excerpt_more' );
 
 
 /**
- * Loop category function
+ * Loop category by ID function Home Page
  */
-function loop_category_posts($category, $posts_per_page, $class1 = '', $class2='', $class3=''){
+function loop_category_posts($cat_id, $posts_per_page, $class1 = '', $class2='', $overlay=''){
 	$args = array(
-		'category_name' => $category,
+		'post_type' => 'post',
+		'cat' => $cat_id,
 		'posts_per_page' => $posts_per_page
 	); 
 	// The Query
@@ -264,21 +265,23 @@ function loop_category_posts($category, $posts_per_page, $class1 = '', $class2='
 	if ( $the_query->have_posts() ) :
 		while ( $the_query->have_posts() ) :
 			$the_query->the_post(); ?>
-
-			<div class="<?php echo $class1 ?>">
-				<div class="<?php echo $class2 ?>">
+			<div class="col-lg-3">
+				<!-- Thumbnail -->
+				<div class="<?php echo esc_attr( $class1 ); ?>">
 					<?php if ( has_post_thumbnail()) :
 						the_post_thumbnail(); ?>
 					<?php endif; ?>
+				</div> 
+
+				<!-- Headline -->
+				<div class="<?php echo esc_attr( $class2 );?>">
+					<h4><a href="<?php echo esc_url( the_permalink() ); ?>"><?php echo esc_html( wp_trim_words( get_the_title(), 6 ) ); ?></a></h4>
+				</div>
 				
-				</div> 
-				<div class="<?php echo $class3 ?>">
-					<h5><a href="<?php echo the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 6 ); ?></a></h5>
-				</div> 
+				<!-- Overlay -->
+				<div class="<?php echo esc_attr( $overlay );?>"></div>
 			</div>
 			<?php
-
-			/* Restore original Post Data */
 			wp_reset_postdata(); 
 		endwhile;
 	endif;
@@ -293,8 +296,6 @@ function suggestions($posts_per_page, $class1 = '', $class2='', $class3=''){
 	$args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $posts_per_page,
-		// 'meta_key'=>'popular_posts',
-		// 'orderby' => 'meta_value_num'
 		'orderby' => 'rand'
 	); 
 	// The Query
@@ -305,18 +306,16 @@ function suggestions($posts_per_page, $class1 = '', $class2='', $class3=''){
 		while ( $the_query->have_posts() ) :
 			$the_query->the_post(); ?>
 
-			<div class="<?php echo $class1 ?>">
-				<div class="<?php echo $class2 ?>">
+			<div class="<?php echo esc_attr( $class1 ); ?>">
+				<div class="<?php echo esc_attr( $class2  ); ?>">
 					<a href="<?php echo esc_url( get_permalink() ); ?>">
 						<?php the_post_thumbnail(); ?>
 					</a>
-
 					<?php playIcon('Da', 'trans.png'); ?>
 				</div> 
 				
 				<div class="<?php echo $class3 ?>">
-					
-					<h5><a href="<?php echo the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 7 ); ?></a></h5>
+					<h5><a href="<?php echo esc_url ( the_permalink() ); ?>"><?php echo esc_html( wp_trim_words( get_the_title(), 7 ) ); ?></a></h5>
 					<div class="meta-date-comments">
 						<?php 
 
@@ -396,12 +395,69 @@ add_action( 'pre_get_posts', 'exclude_pages' );
 * Displaying play icon on video posts function
 */
 function playIcon($choice, $img) {
-$play = get_field('play');
-$icon = '<img src="' . get_template_directory_uri() . '/img/' . $img . '"' . 'alt="play-icon">';
+	$play = get_field('play');
+	$icon = '<img src="' . get_template_directory_uri() . '/img/' . $img . '"' . 'alt="play-icon">';
 
-if( $play && in_array($choice, $play) ) :
-	$output = '<div class="p-icon">' . $icon . '</div>';
-	echo $output;
-endif;
+	if( $play && in_array($choice, $play) ) :
+		$output = '<div class="p-icon">' . $icon . '</div>';
+		echo $output;
+	endif;
 }
 
+
+/**
+*
+* Loop category function
+*/
+function loop_cat_comments($cat_id, $posts_per_page, $class1 = '', $class2='') {
+	$args = array(
+		'cat' => $cat_id,
+		'posts_per_page' => $posts_per_page
+	); 
+
+	// The Query
+	$the_query = new WP_Query( $args );
+
+	// The Loop
+	if ( $the_query->have_posts() ) : ?>
+
+		<?php
+		while ( $the_query->have_posts() ) :
+			$the_query->the_post(); ?>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="kod-section-wrapper">
+						<div class="kod-cards">
+							<?php if ( has_post_thumbnail()) :
+								the_post_thumbnail(); ?>
+							<?php endif; ?>
+
+							<?php playIcon('Da', 'trans.png'); ?>
+						</div> 
+
+
+						<div class="kod-card-content">
+							<h5><a href="<?php echo esc_url( the_permalink() ); ?>"><?php echo esc_html( wp_trim_words( get_the_title(), 6 ) ); ?></a></h5>
+						</div>
+
+						<div class="date-comments">
+							<?php 
+								echo get_the_date( 'd. m. Y ' );
+
+								if (  get_comments_number() > 0 ) : //Ako postoji komentar
+											
+										echo ', '. '<i class="bi bi-chat-dots-fill icon-chat"></i>' . get_comments_number(); //PrikaŽi komentar
+
+								endif;
+							?>
+						</div>
+
+					</div>
+				</div> <!-- End of column -->
+				<?php
+			/* Restore original Post Data */
+			wp_reset_postdata(); 
+		endwhile;
+	endif;
+
+}
