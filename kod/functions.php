@@ -263,7 +263,7 @@ function loop_category_posts($cat_id, $posts_per_page, $class1 = '', $class2='',
 	if ( $the_query->have_posts() ) :
 		while ( $the_query->have_posts() ) :
 			$the_query->the_post(); ?>
-			<div class="col-lg-3">
+			
 				<!-- Thumbnail -->
 				<div class="<?php echo esc_attr( $class1 ); ?>">
 					<?php if ( has_post_thumbnail()) :
@@ -353,7 +353,7 @@ add_filter( 'get_the_archive_title', 'remove_cat_prefix' );
 /**
  * Function for tracking most viewed posts - Stack Overflow - not gonna use probably
  */
-/*function kod_popular_posts($post_id) {
+function kod_popular_posts($post_id) {
 	$count_key = 'post_views_count';
 	$count = get_post_meta($post_id, $count_key, true);
 	if ($count == '') {
