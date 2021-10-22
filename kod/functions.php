@@ -2,8 +2,6 @@
 /**
  * KOD functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
  * @package KOD
  */
 
@@ -290,7 +288,7 @@ function loop_category_posts($cat_id, $posts_per_page, $class1 = '', $class2='',
 
 
 /**
- * Suggestions section posts function- single.php/content.php
+ * Suggestions section posts Loop function- single.php/content.php
  */
 function suggestions($posts_per_page, $class1 = '', $class2='', $class3=''){
 	$args = array(
@@ -353,9 +351,9 @@ add_filter( 'get_the_archive_title', 'remove_cat_prefix' );
 
 
 /**
- * Function for tracking most viewed posts
+ * Function for tracking most viewed posts - Stack Overflow - not gonna use probably
  */
-function kod_popular_posts($post_id) {
+/*function kod_popular_posts($post_id) {
 	$count_key = 'post_views_count';
 	$count = get_post_meta($post_id, $count_key, true);
 	if ($count == '') {
@@ -393,6 +391,8 @@ add_action( 'pre_get_posts', 'exclude_pages' );
 /**
 *
 * Displaying play icon on video posts function
+*
+* $img argument is just for displaying different icons for presentation purposes - will be changed width ACF field 
 */
 function playIcon($choice, $img) {
 	$play = get_field('play');
