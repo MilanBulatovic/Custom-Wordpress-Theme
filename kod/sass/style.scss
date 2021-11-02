@@ -1,14 +1,12 @@
 /*!
 Theme Name: KOD
-Theme URI: http://underscores.me/
+Theme URI: https://www.linkedin.com/in/milan-buli/
 Author: Milan Bulatovic
-Author URI: http://underscores.me/
+Author URI: https://www.linkedin.com/in/milan-buli/
 Description: KOO Wordpress theme
 Version: 1.0.0
 Tested up to: 5.4
 Requires PHP: 5.6
-License: GNU General Public License v2 or later
-License URI: LICENSE
 Text Domain: kod
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
@@ -21,12 +19,6 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 @import "utilities/accessibility";
 @import "layouts/suggestions";
 
-
-/*--------------------------------------------------------------
-# Layouts
---------------------------------------------------------------*/
-// @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
-// @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
 
 
 
@@ -53,10 +45,6 @@ body {
 	margin: 0;
 	padding: 0;
 	background-position: left -250px top 100px;
-
-	#page {
-		padding-top: 120px;
-	}
 }
 
 .container {

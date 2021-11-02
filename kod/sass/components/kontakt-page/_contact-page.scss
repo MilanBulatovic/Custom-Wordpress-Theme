@@ -7,17 +7,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-.mail-send {
-    width:60px;
-    
-}
 
-.entry-headline {
+    @media(max-width: $xs){
+        padding:0;
+    }
+    
+    .mail-send {
+        width:60px;
+        
+    }
+
+    .entry-headline {
         text-align: center;
+
         h1{
-            margin-top: 95px;
+            margin-top: 65px;
             margin-bottom: 35px;
+            font-size: 3.4rem;
         }
 
         h6 {
@@ -31,13 +37,17 @@
             margin-bottom: 65px;
             font-weight: 500;
         }
-}
+    }
 
     .contact-form {
         max-width:600px;
         width: 100%;
         text-align: center;
         margin-bottom: 130px;
+
+        @media(max-width: $xs){
+            margin-bottom: 50px;
+        }
 
         .form-control{
             padding: 10px 15px;
@@ -66,6 +76,11 @@
     padding:0 15px;
     margin-bottom: 85px;
 
+    @media(max-width: $sm){
+        padding:0;
+        margin-bottom: 0;
+    }
+
     .contact-info {
 
         & :first-child:before {
@@ -92,5 +107,15 @@
             margin-bottom: 55px;
             margin-left: 10px;
         }
+    }
+
+    .map {
+        iframe{
+            @media(max-width:$md) {
+                height: 300px;
+                width: 100%;
+            }
+        }
+       
     }
 }

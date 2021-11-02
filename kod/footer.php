@@ -2,17 +2,13 @@
 /**
  * The template for displaying the footer
  *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package KOD
  */
 
 ?>
 
 	<footer class="site-footer">
-		<div class="container">
+		<div class="container px-lg-5">
 			<div class="row">
 				<div class= "col-lg-3">
 					<?php 
@@ -26,7 +22,7 @@
 				</div>
 					
 				</div>
-				<div class= "col-lg-3 left-divider">
+				<div class= "col-lg-3 col-md-4 col-sm-6 left-divider">
 					<p class="footer-headline">Doku centar</p>
 					<?php
 						wp_nav_menu(
@@ -37,7 +33,7 @@
 						);
 					?>
 				</div>
-				<div class= "col-lg-3 left-divider">
+				<div class= "col-lg-3 col-md-4 col-sm-6 left-divider">
 					<p class="footer-headline">Preporučujemo</p>
 					<?php
 						wp_nav_menu(
@@ -48,7 +44,7 @@
 						);
 					?>
 				</div>
-				<div class= "col-lg-3 left-divider">
+				<div class= "col-lg-3 col-md-4 left-divider d-flex flex-column">
 				<a href="<?php echo esc_url( get_page_link( 230 ) ); ?>"><p class="footer-headline impressum">Impressum</p></a>
 					<p class="footer-headline">Kontakt <br><span class="adresa">Stara Varoš, Bratstva i jedinstva B-T
 						81000, Podgorica, Crna Gora
@@ -60,7 +56,7 @@
 		</div>	
 		<!-- Bottom footer -->
 		<div class="bottom-footer">
-			<div class="container d-flex justify-content-between align-items-center">
+			<div class="container d-flex justify-content-between align-items-center column-xs px-sm-4">
 				<div class="copyright">Sva prava zadržana KOD &copy; 2021</div>
 				
 				<?php dynamic_sidebar('sidebar-3'); ?>

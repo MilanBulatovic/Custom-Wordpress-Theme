@@ -1,12 +1,31 @@
 #primary {
     padding-bottom: 50px;
 
+    @media(max-width:$lg){
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+    @media(max-width:$sm){
+        padding-left:5px;
+        padding-right:5px;
+    }
+
+    @media(max-width:$xs){
+        padding-left:5px;
+        padding-right:5px;
+    }
+
+    .entry-content {
+        padding-left:15px;
+        padding-right:15px;
+    }
+
     .category-title {
       margin-bottom: 50px;
 
       a {
         color: $crvena;
-        //text-transform: uppercase;
       }
     }
     
@@ -14,14 +33,25 @@
 
         .entry-title {
             max-width: 750px;
+
+            @media(max-width:$md){
+                font-size: 3.2rem;
+                line-height: normal;
+            }
+
+            @media(max-width:$sm){
+                font-size: 2.8rem;
+                line-height: normal;
+            }
         }
         
         .entry-meta {
             display: flex;
+            flex-wrap: wrap;
             position: relative;
             align-items: center;
-            margin-top: 30px;
-            margin-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 5px;
                 
             & p, .category {
                 position: relative;
@@ -45,13 +75,13 @@
             .author {
                 margin-right: 5px;
                 font-size: 1.4rem;
-                //font-weight: 600;
             }
 
             .time-stamp, 
             .entry-date, 
             .bi-chat-right-text-fill {
-                margin-left: 10px;
+                margin-left: 5px;
+                
             }
 
             .category a {
@@ -85,19 +115,79 @@
         .post-thumbnail {
             height: 500px;
 
+            @media(max-width: $md){
+                height: 450px;
+            }
+
+            @media(max-width: $sm){
+                height: 400px;
+            }
+
+            @media(max-width: $xs){
+                height: 250px;
+            }
+
             img {
                 width: 100%;
             }
         }
+
+        .feature-video {
+            width:100%;
+            height:500px;
+
+            @media(max-width: $md){
+                height: 450px;
+            }
+
+            @media(max-width: $sm){
+                height: 400px;
+            }
+
+            @media(max-width: $xs){
+                height: 250px;
+            }
+
+            iframe{
+                width: 100%;
+                height: inherit;
+            }
+        }
+
         .entry-content {
             margin-top: 60px;
-            margin-bottom: 80px;
+            margin-bottom: 50px;
             padding: 0 20px;
+        }
+    
+        .tags-share {
+            align-items: center;
+
+            @media(max-width: $sm){
+                align-items: flex-start;
+            }
+
+            @media(max-width: $xs){
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         .tags {
             display: flex;
             padding: 0 20px;
+            align-items: center;
+
+            @media(max-width: $sm){
+                padding:0;
+                flex-wrap: wrap;
+                flex: 1;
+            }
+
+            @media(max-width: $xs){
+                margin-bottom:20px;
+            }
+
             a {
                 padding: 5px 16px;
                 background-color: $crvena;
@@ -106,13 +196,56 @@
                 font-weight: 500;
                 margin-right: 10px;
                 border-radius: 3px;
-                //@include shadow;
+                @media(max-width: $sm){
+                    margin-bottom:5px;
+                }
             }
+        }
+        @media(max-width: $sm){
+            .socials-wrapper li{
+                margin-top:0;
+            }
+        }
+        
+    }
+
+    //Sidebar
+    .sidebar-main-wrapper {
+
+        @media(max-width:$lg) {
+            padding-left: 30px;
+            padding-right: 0;;
+        }
+
+        @media(max-width:$md) {
+            padding-left: 0;            
+        }
+
+        .sm-padd-right {
+            @media(max-width:$md) {
+            }
+        }
+
+        .sm-padd-left {
+            @media(max-width:$md) {
+                padding-left: 30px;            
+            }
+            @media(max-width:$sm) {
+                padding-left: 10px;            
+            }  
         }
     }
 
-    .sidebar-main-wrapper {
-        padding-left: 60px;
+    .sidebar-wrapper {
+        margin-bottom:40px;
     }
 }  
+
+aside.aside {
+    padding: 0 10px;
+
+    @media(max-width:$md){
+        padding:0 5px;
+    }
+}
 

@@ -36,29 +36,30 @@ get_header();
 		?>
 
 	</main><!-- #main -->
-
-	<!-- Preporučujemo -->
-	<h4 class="entry-suggestion-title">PREPORUČUJEMO</h4>
-	<div class="red-divider"></div>
-	<div class="suggestions">
-		<?php suggestions(4, 'wrapper-element', 'wrapper-thumb kod-cards', 'wrapper-content') ?>
-	</div>
-
-	<div class="divider"></div>
-
-	<!-- Komentari -->
-	<h4>KOMENTARI</h4>
-	<div class="red-divider"></div>
-	<div class="number-of-comments d-flex justify-content-bewtween" style="width: 100%;">
-		<h5>Pridružite se diskusiji</h5>
-		<h5 class="number"><?php echo get_comments_number(); ?> komentar(a)</h5>
-	</div>
 	
-	<?php
-	if ( comments_open() || get_comments_number() ) :
-		comments_template();
-	endif;  ?>
+	<aside class="aside">
+		<!-- Preporučujemo -->
+		<h5 class="entry-suggestion-title">PREPORUČUJEMO</h5>
+		<div class="red-divider"></div>
+		<div class="suggestions">
+			<?php suggestions(4, 'wrapper-element', 'wrapper-thumb kod-cards', 'wrapper-content') ?>
+		</div>
 
+		<div class="divider"></div>
+
+		<!-- Komentari -->
+		<h5>KOMENTARI</h5>
+		<div class="red-divider"></div>
+		<div class="number-of-comments d-flex" style="width: 100%;">
+			<h5 class="xs-width">Pridružite se diskusiji</h5>
+			<h5 class="number"><?php echo get_comments_number(); ?> komentar(a)</h5>
+		</div>
+		
+		<?php
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;  ?>
+	</aside>
 	
 </div> 
 <?php

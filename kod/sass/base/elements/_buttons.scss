@@ -11,8 +11,6 @@ textarea,
 	//text-transform: uppercase;
 	font-weight: 600;
 	font-size: 1.2rem;
-	
-
 
 	&:focus {
 		border-color: $shadow-color;
@@ -30,3 +28,55 @@ textarea {
 button {
 	text-transform: uppercase;
 }
+
+button.menu-toggler {
+	display: none !important;
+	background: none;
+	border: none;
+	color: black;
+
+	i{
+		font-size: 3.5rem;
+	}
+
+	@media (max-width: $sm) {
+		display: inline-flex !important;
+
+	}
+}
+
+//Input type text
+input[type="submit"] {
+	background: $crvena;
+	border:1px solid white;
+}
+
+//Close search form button
+.close-search{
+	transform: scaleX(0);
+	width: auto;
+	position: absolute;
+	top: 3%;
+	right: 0;
+	font-size: 2.8rem;
+	z-index: 59;
+	transition: scale 0.5s ease-in-out;
+
+	@media(max-width:$md){
+		right: unset;
+		left: 0;
+
+	}
+}
+
+//Close icon when search form is active
+.search-closed {
+	transform: scaleX(1);
+	cursor: pointer;
+}
+
+.bi-x-circle-fill {
+	color: white;
+
+}
+

@@ -3,11 +3,19 @@ footer.site-footer {
     background-color: $footer-bg;
     position: relative;
     padding-top: 80px;
-    //padding-bottom: 80px;
+
+    @media (max-width:$md) {
+        padding-top: 40px;
+    }
 
     .footer-logo {
         img {
             height: auto;
+        }
+
+        @media (max-width:$md) {
+            margin-bottom: 20px;
+            padding-left: 10px;
         }
     }
 
@@ -30,6 +38,7 @@ footer.site-footer {
         @include red-divider-footer(100%, 6px, $crvena);
         position: absolute;
         top:0;
+        left:0;
 
     }
 
@@ -40,6 +49,18 @@ footer.site-footer {
         margin-bottom: 22px;
         display: inline-block;
         font-size: 1.4rem;
+
+        @media (max-width: $sm) {
+            margin-top: 20px;
+        }
+    }
+
+    .impressum {
+        text-decoration: underline;
+        @media (max-width: $sm) {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
     }
 
     .impressum:hover{
@@ -63,8 +84,6 @@ footer.site-footer {
         }
     }
 
-
-
     ul {
         list-style-type: none;
         padding: 0;
@@ -86,16 +105,25 @@ footer.site-footer {
         }    
     }
 
-  
-
     .bottom-footer {
         background-color: hsla(0, 0%, 22%, 1);
-        padding: 30px 0;
+        padding: 20px 0;
         margin-top: 80px;
+
+        .column-xs {
+
+            @media (max-width:$xs) {
+                flex-direction: column;
+            }
+        }
 
         .copyright {
           color: $footer-links;
           font-size: 1.6rem;
+
+          @media (max-width:$xs) {
+            margin-bottom: 15px;
+            }
         }
         
         ul {
@@ -105,7 +133,4 @@ footer.site-footer {
             }
         }
     }
-
-   
-
 }

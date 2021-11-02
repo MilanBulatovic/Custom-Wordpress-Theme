@@ -12,11 +12,11 @@
         <!-- Section SLIDER -->
         <section id="slideshow">
             <div class="row">
-                <div class="col-lg-8 col">
+                <div class="col-lg-8 col-sm-12">
                     <?php echo do_shortcode('[wonderplugin_slider id=1]'); ?>
                 </div><!-- End of column -->
 
-                <div class="col-lg-4 d-flex flex-column">
+                <div class="col-lg-4 col-sm-12 d-flex green-red">
 
                     <!-- Zelena priča Loop function -->
                     <div class="zelena-prica-entry">
@@ -28,7 +28,7 @@
                     </div>
 
                     <!-- Dekodiranje Loop function -->
-                    <div class="dekodiranje-entry mt-4">
+                    <div class="dekodiranje-entry">
                         <?php loop_category_posts( 4, 1, 'post-thumb', 'dekodiranje-content', 'dekodiranje-overlay' ); ?>
 
                         <div class="play-icon d-flex align-items-center">
@@ -108,7 +108,7 @@
                                             </div> 
                                             
                                             <div class="kod-card-content">
-                                                <h2><a href="<?php echo the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 6 ); ?></a></h2>
+                                                <h3><a href="<?php echo the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 6 ); ?></a></h3>
                                                 <?php echo wp_trim_words ( the_excerpt(), 15 ); ?>
 
                                                 <div class="date-comments">
@@ -163,17 +163,15 @@
                             <?php
                             while ( $the_query->have_posts() ) :
                                 $the_query->the_post(); ?>
-                                    <div class="col-lg-3 col-md-6">
+                                    <div class="col-lg-3 col-md-6 col-sm-6">
 
                                         <div class="kod-section-wrapper">
 
                                             <div class="kod-cards">
                                                 <a href="<?php echo esc_url( get_permalink() ); ?>">
-
                                                     <?php the_post_thumbnail(); ?>
-                                                    <?php playIcon('Da', 'white-play.png'); ?>
-
                                                 </a>
+                                                <?php playIcon('Da', 'white-play.png'); ?>
                                             </div> 
 
                                             <div class="date-comments">
@@ -212,43 +210,38 @@
         <div class="red-divider"></div>
         
         <section id="press-clipping">
-            
-            <div class="container">
-                <div class="row">
-               
-                    <!-- Posts loop -->
-                    <?php
-                        $args = array(
-                            'category_name' => 'blog',
-                            'posts_per_page' => '4'
-                        ); 
-                        // The Query
-                        $the_query = new WP_Query( $args );
-                    
-                        // The Loop
-                        if ( $the_query->have_posts() ) : ?>
-                        
+            <?php
+            // Check rows exists.
+            if( have_rows('gallery') ): ?>
+                <div class="custom-swiper-holder">
+                    <!-- Slider main container -->
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
                             <?php
-                            while ( $the_query->have_posts() ) :
-                                $the_query->the_post(); ?>
-                                    <div class="col-lg-3 col-md-6 gy-4">
-                                        <div class="kod-press-clip m-auto"
-                                            <?php if ( has_post_thumbnail()) : ?>
-                                                style="background-image:url(<?php echo get_the_post_thumbnail_url(); ?>);"
-                                            <?php endif; ?>>
-                                        
-                                        </div> 
-                                    </div>
-                                    <?php
-                                /* Restore original Post Data */
-                                wp_reset_postdata(); 
-                            endwhile;
-                        endif; ?>
-                </div>      
-            </div>
+                            // Loop through rows.
+                            while( have_rows('gallery') ) : the_row();
+
+                            $image = get_sub_field('image');
+                                if( $image ) {
+                                    $url = $image['url'];
+                                    //$thumb = $image['thumbnail']; ?>
+                                    <div class="swiper-slide">
+                                        <a href="<?php echo esc_url($url); ?>"><img src="<?php echo esc_url($url, $thumb); ?>"/></a>
+                                    </div> 
+                                <?php }
+                        
+                            // End loop.
+                            endwhile; ?>
+                    
+                        </div><!-- end of swiper wrapper -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div><!-- end of swiper  -->
+            </div><!-- end of custom swiper holder --> <?php
+            endif; ?>
+                        
         </section>
-
-
     </div> <!-- end of container content -->       
 </div> <!-- end of wrapper home content -->
 

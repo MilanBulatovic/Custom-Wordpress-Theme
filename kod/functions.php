@@ -2,6 +2,8 @@
 /**
  * KOD functions and definitions
  *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
  * @package KOD
  */
 
@@ -174,12 +176,13 @@ function kod_scripts() {
 	wp_enqueue_style( 'bootstrap-style', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css', array(), _S_VERSION );
 	wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', array(), _S_VERSION );
 	wp_enqueue_style( 'font-awesome-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'swiper', 'https://unpkg.com/swiper@7/swiper-bundle.min.css', array(), _S_VERSION );
 	wp_enqueue_style( 'kod-style', get_template_directory_uri() . '/sass/style.css', array(), _S_VERSION );
 	wp_style_add_data( 'kod-style', 'rtl', 'replace' );
-
+	
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'kod-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'swiper', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -278,7 +281,7 @@ function loop_category_posts($cat_id, $posts_per_page, $class1 = '', $class2='',
 				
 				<!-- Overlay -->
 				<div class="<?php echo esc_attr( $overlay );?>"></div>
-			</div>
+			
 			<?php
 			wp_reset_postdata(); 
 		endwhile;
@@ -286,9 +289,23 @@ function loop_category_posts($cat_id, $posts_per_page, $class1 = '', $class2='',
 
 }
 
+/*
+*
+* Displaying play icon on video posts function
+*/
+function playIcon($choice, $img) {
+	$play = get_field('play');
+	$icon = '<img src="' . get_template_directory_uri() . '/img/' . $img . '"' . 'alt="play-icon">';
 
-/**
- * Suggestions section posts Loop function- single.php/content.php
+	if( $play && in_array($choice, $play) ) :
+		$output = '<div class="p-icon">' . $icon . '</div>';
+		echo $output;
+	endif;
+}
+
+
+/*
+ * Suggestions section posts function- single.php/content.php
  */
 function suggestions($posts_per_page, $class1 = '', $class2='', $class3=''){
 	$args = array(
@@ -351,7 +368,7 @@ add_filter( 'get_the_archive_title', 'remove_cat_prefix' );
 
 
 /**
- * Function for tracking most viewed posts - Stack Overflow - not gonna use probably
+ * Function for tracking most viewed posts
  */
 function kod_popular_posts($post_id) {
 	$count_key = 'post_views_count';
@@ -390,24 +407,7 @@ add_action( 'pre_get_posts', 'exclude_pages' );
 
 /**
 *
-* Displaying play icon on video posts function
-*
-* $img argument is just for displaying different icons for presentation purposes - will be changed width ACF field 
-*/
-function playIcon($choice, $img) {
-	$play = get_field('play');
-	$icon = '<img src="' . get_template_directory_uri() . '/img/' . $img . '"' . 'alt="play-icon">';
-
-	if( $play && in_array($choice, $play) ) :
-		$output = '<div class="p-icon">' . $icon . '</div>';
-		echo $output;
-	endif;
-}
-
-
-/**
-*
-* Loop category function
+* Loop category function HOME PAGE
 */
 function loop_cat_comments($cat_id, $posts_per_page, $class1 = '', $class2='') {
 	$args = array(
@@ -425,13 +425,12 @@ function loop_cat_comments($cat_id, $posts_per_page, $class1 = '', $class2='') {
 		while ( $the_query->have_posts() ) :
 			$the_query->the_post(); ?>
 
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="kod-section-wrapper">
 						<div class="kod-cards">
-							<?php if ( has_post_thumbnail()) :
-								the_post_thumbnail(); ?>
-							<?php endif; ?>
-
+						<a href="<?php echo esc_url( get_permalink() ); ?>">
+							<?php the_post_thumbnail(); ?>
+						</a>
 							<?php playIcon('Da', 'trans.png'); ?>
 						</div> 
 

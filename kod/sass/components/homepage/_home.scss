@@ -14,16 +14,36 @@
 
         }
 
+        .green-red {
+            flex-direction: column;
+
+            @media(max-width:$md){
+                flex-direction: row;
+                gap:15px;
+                margin-top: 15px;
+            }
+
+            @media(max-width:$xs){
+                flex-direction: column;
+                margin-top: 15px;
+            }
+        }
+
+
         //Zelena prica i Dekodiranje sekcije
         .zelena-prica-entry,
         .dekodiranje-entry {
             width:100%;
             height:260px;
             position: relative;
-            // background-size: cover;
-            // background-position: center;
-            // background-repeat: no-repeat;
             @include shadow;
+
+            @media(max-width:$md){
+                h4{
+                    font-size: 2.2rem;
+                    line-height: normal;
+                }
+            }
             
         
             & > * {
@@ -63,6 +83,14 @@
             }
         }
 
+        .dekodiranje-entry {
+            margin-top: 15px;
+
+            @media(max-width:$md){
+                margin-top: 0;
+            }
+        }
+
         .post-thumb {
             width: 100%;
             height: 100%;
@@ -71,13 +99,23 @@
 
     .kod-card-content {
         margin-top: 10px;
+
+        @media(max-width:$md){
+            h5{
+                font-size: 1.8rem;
+                line-height: normal;
+            }
+        }
     }
 
-    //Datum i komentari
+    //Datum i komentari global
     .date-comments {
         font-size: 1.3rem;
-        //margin-bottom: 10px;
         margin-top: 10px;
+
+        @media(max-width:$md){
+            height: auto !important;
+        }
 
         .bi-chat-dots-fill {
             margin-left: 15px;
@@ -96,16 +134,35 @@
         grid-template-areas: 
         "showcase rightUp"
         "showcase rightDown";
-        //"showcase last"; 
+
+        @media(max-width:$sm){
+            grid-template-rows: min-content;
+            grid-template-areas: 
+            "showcase showcase"
+            "rightUp rightDown";
+        }
+
         
-        div:nth-child(1) {
+        @media(max-width:$xs){
+            grid-template-columns: 1fr;
+            grid-auto-rows: minmax(min-content, max-content);
+            grid-template-areas: 
+            "showcase"
+            "rightUp" 
+            "rightDown";
+        }
+        
+        div:nth-child(1) { /*kod-content-wrapper*/
             width: 100%;
             grid-area: showcase;
             position: relative;
+            height: 400px;
 
-            & > div {
-                //width: 580px;
-                height: 400px;
+            @media(max-width:$sm){
+                height: 350px;
+            }
+
+            & > div { /*kod-cards*/
                 &:after {
                     content: '';
                     position: absolute;
@@ -120,7 +177,7 @@
                 }
             }
 
-            & > div ~ div {
+            & > div ~ div { /*kod-cards-content*/
                 flex-direction: column;
                 justify-content: flex-end;
                 position: absolute;
@@ -130,78 +187,161 @@
                 padding: 0 20px 50px 40px;
                 color: white;
 
+                @media(max-width:$sm){
+                    padding: 0 20px 20px 20px;
+                }
+
                 h2 {
                     @include text-shadow;
-                   
+
+                    @media(max-width:$sm){
+                        font-size: 2.8rem;
+                        line-height: normal;
+                        margin-bottom:10px;
+                    }
+                    
+                }
+
+                .date-comments {
+                    @media(max-width:$sm){
+                        height: auto;
+                        z-index: 5;
+                    }
                 }
 
                 a {
                     color: white;
                 }
             }
-
         }
 
         
-        div:nth-child(2) {
+        div:nth-child(2) { /*kod-content-wrapper*/
             display: flex;
             width: 100%;
             grid-area: rightUp;
 
-            & > div {
-                width: 205px;
-                height: auto;
+            @media(max-width:$sm){
+                flex-direction: column;
             }
 
-            & > div ~ div {
+            & > div {  /*kod-cards*/
+                width: 205px;
+                height: auto;
+
+                @media(max-width:$sm){
+                    width:100%;
+                    height: 180px;
+                }
+            }
+
+            & > div ~ div {  /*kod-card-content*/
                 flex-direction: column;
-                //justify-content: space-evenly;
                 flex:1;
                 padding-left: 20px;
                 padding-right: 20px;
 
-                h2 {
-                    font-size: 24px;
+                @media(max-width:$sm){
+                    padding: 0;
+                    flex:unset;
+                    height: auto;
+                }
+
+                h3 {
+                    font-size: 20px;
                     line-height: 28.8px;
-                   
+
+                    @media(max-width:$sm){
+                        font-size: 2rem;
+                        line-height: normal;
+                        margin-bottom:5px;
+                    }
+                }
+
+                .date-comments {
+                    @media(max-width:$sm){
+                        height: auto;
+                        flex-direction: row;
+                    }
                 }
             }
 
         }
 
-        div:nth-child(3) {
+        div:nth-child(3) { /*kod-content-wrapper*/
             display: flex;
             width: 100%;
             grid-area: rightDown;
 
-            & > div {
-                width: 205px;
-                height: auto;
+            @media(max-width:$sm){
+                flex-direction: column;
             }
 
-            & > div ~ div {
+            & > div { /*kod-cards*/
+                width: 205px;
+                height: auto;
+
+                @media(max-width:$sm){
+                    width:100%;
+                    height: 180px;
+                }
+            }
+
+            & > div ~ div { /*kod-cards-content*/
                 flex-direction: column;
-                //justify-content: space-evenly;
                 flex:1;
                 padding-left: 20px;
                 padding-right: 20px;
 
-                h2 {
+                @media(max-width:$sm){
+                    padding: 0;
+                }
+
+                h3 {
                     font-size: 24px;
                     line-height: 28.8px;
+
+                    @media(max-width:$sm){
+                        font-size: 2rem;
+                        line-height: normal;
+                        margin-bottom:5px;
+                    }
                 }
             }
 
         }
-
-       
     }
 
     //Section PRESS CLIPPING
-    .press-clipping {
-        margin-bottom: 20px;
-    }
     #press-clipping {
         padding-bottom: 100px;
+
+         //Press Clipping Swiper
+        .swiper {
+            padding: 10px 40px;
+
+            .swiper-slide,
+            .swiper-slide-next {
+                height:auto;
+                @include shadow;
+
+                @media(max-width:$xs){
+                    width:250px;
+                }
+            }
+
+            .swiper-button-prev {
+                left: 0;
+            }
+
+            .swiper-button-next {
+                right: 0;
+            }
+
+            .swiper-button-next:after, 
+            .swiper-button-prev:after {
+                color: black;
+            }
+        }
     }
 }

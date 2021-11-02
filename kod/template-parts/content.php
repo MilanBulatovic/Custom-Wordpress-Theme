@@ -12,9 +12,9 @@
 	<div class="row">
 		<header class="entry-header">
 			<?php
-		
+			//Title
 			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title">', '</h1>' );
+				the_title( '<h2 class="entry-title">', '</h2>' );
 			else :
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif;
@@ -35,8 +35,15 @@
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<!-- <?php //echo gt_get_post_view(); ?> -->
 			
+				<?php 
+				$iframe = get_field('video');
+					if( !$iframe ) :
+						kod_post_thumbnail();
+					elseif( $iframe ) : 
+						echo '<div class="feature-video">' . $iframe . '</div>';
+					endif;
+				 ?>
 			
-				<?php kod_post_thumbnail(); ?>
 
 				<div class="entry-content">
 					<?php
@@ -64,7 +71,7 @@
 					);
 					?>
 					<div class="divider-single-page"></div>
-					<div class="tags-share d-flex justify-content-between align-items-center">
+					<div class="tags-share d-flex justify-content-between">
 						<div class="tags"><?php the_tags('', ''); ?></div>
 						<?php dynamic_sidebar('sidebar-3'); ?>
 					</div>
@@ -74,17 +81,24 @@
 			</article><!-- #post-<?php the_ID(); ?> -->
 		</div>
 			
-		<div class="col-lg-4">
+		<div class="col-lg-4 col-md-12">
 			<div class="sidebar-main-wrapper">
-				<h5 style="text-transform: uppercase;">Najčitanije</h5>
-				<div class="red-divider"></div>
-					<?php dynamic_sidebar('sidebar-1') ?>
-				<h5 style="text-transform: uppercase; margin-top: 40px">Najgledanije</h5>
-				<div class="red-divider"></div>
-				<?php dynamic_sidebar('sidebar-2') ?>
+				<div class="row">
+					<div class="col-lg-12 col-md-6 sm-padd-right">
+						<h5 style="text-transform: uppercase;">Najčitanije</h5>
+						<div class="red-divider"></div>
+						<?php dynamic_sidebar('sidebar-1') ?>
+					</div>
+					<div class="col-lg-12 col-md-6 sm-padd-left">
+						<h5 style="text-transform: uppercase;">Najgledanije</h5>
+						<div class="red-divider"></div>
+						<?php dynamic_sidebar('sidebar-2') ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>	<!-- end of row -->
+
 		
 
 
