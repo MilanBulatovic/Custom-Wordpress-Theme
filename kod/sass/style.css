@@ -1268,7 +1268,8 @@ textarea#wc-textarea-0_0 {
   -ms-grid-rows: (1fr)[2];
       grid-template-rows: repeat(2, 1fr);
   gap: 15px 15px;
-      grid-template-areas: "showcase rightUp" "showcase rightDown";
+      grid-template-areas: "showcase rightUp"
+ "showcase rightDown";
 }
 
 @media (max-width: 768px) {
@@ -1276,7 +1277,8 @@ textarea#wc-textarea-0_0 {
     -ms-grid-rows: min-content;
         grid-template-rows: -webkit-min-content;
         grid-template-rows: min-content;
-        grid-template-areas: "showcase showcase" "rightUp rightDown";
+        grid-template-areas: "showcase showcase"
+ "rightUp rightDown";
   }
 }
 
@@ -1286,7 +1288,9 @@ textarea#wc-textarea-0_0 {
         grid-template-columns: 1fr;
     grid-auto-rows: minmax(-webkit-min-content, -webkit-max-content);
     grid-auto-rows: minmax(min-content, max-content);
-        grid-template-areas: "showcase" "rightUp"  "rightDown";
+        grid-template-areas: "showcase"
+ "rightUp" 
+ "rightDown";
   }
 }
 
@@ -2162,25 +2166,30 @@ aside.aside {
   display: -ms-grid;
   display: grid;
   grid-auto-columns: 1fr;
-      grid-template-areas: "one one one two" "one one one three";
+      grid-template-areas: "one one one two"
+ "one one one three";
   gap: 20px 20px;
 }
 
 @media (max-width: 991.98px) {
   #primary .grid {
-        grid-template-areas: "one one one one" "two two three three";
+        grid-template-areas: "one one one one"
+ "two two three three";
   }
 }
 
 @media (max-width: 768px) {
   #primary .grid {
-        grid-template-areas: "one one" "two three";
+        grid-template-areas: "one one"
+ "two three";
   }
 }
 
 @media (max-width: 500px) {
   #primary .grid {
-        grid-template-areas: "one" "two"  "three";
+        grid-template-areas: "one"
+ "two" 
+ "three";
   }
 }
 
@@ -2616,7 +2625,9 @@ aside.aside {
   display: grid;
   gap: 15px 15px;
   grid-auto-flow: row dense;
-      grid-template-areas: "one two" "one three" "one four";
+      grid-template-areas: "one two"
+ "one three"
+ "one four";
 }
 
 @media (max-width: 991.98px) {
@@ -2624,7 +2635,8 @@ aside.aside {
     -ms-grid-rows: (auto)[2];
         grid-template-rows: repeat(2, auto);
     grid-auto-columns: 1fr;
-        grid-template-areas: "one one one" "two three four";
+        grid-template-areas: "one one one"
+ "two three four";
     height: auto;
     padding: 0 10px;
   }
@@ -2636,7 +2648,10 @@ aside.aside {
         grid-template-rows: repeat(2, auto);
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
-        grid-template-areas: "one" "two" "three" "four";
+        grid-template-areas: "one"
+ "two"
+ "three"
+ "four";
   }
 }
 
