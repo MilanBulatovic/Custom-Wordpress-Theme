@@ -1,8 +1,6 @@
 /*!
 Theme Name: KOD
-Theme URI: http://underscores.me/
 Author: Milan Bulatovic
-Author URI: http://underscores.me/
 Description: KOO Wordpress theme
 Version: 1.0.0
 Tested up to: 5.4
@@ -823,7 +821,8 @@ textarea#wc-textarea-0_0 {
   -ms-grid-rows: (1fr)[2];
       grid-template-rows: repeat(2, 1fr);
   gap: 15px 15px;
-      grid-template-areas: "showcase rightUp" "showcase rightDown";
+      grid-template-areas: "showcase rightUp"
+ "showcase rightDown";
 }
 
 .wrapper-home .grid-wrapp div:nth-child(1) {
@@ -1692,7 +1691,9 @@ footer.site-footer .bottom-footer ul a {
       grid-template-rows: repeat(3, 1fr);
   gap: 15px 15px;
   grid-auto-flow: row dense;
-      grid-template-areas: "one two" "one three" "one four";
+      grid-template-areas: "one two"
+ "one three"
+ "one four";
 }
 
 .suggestions > :nth-child(1) {
