@@ -2,8 +2,6 @@
 /**
  * Template part for displaying posts content part
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package KOD
  */
 
@@ -22,11 +20,13 @@
 			if ( 'post' === get_post_type() ) :
 				?>
 				<div class="entry-meta">
-					<div class="avatar"><?php echo get_avatar(get_the_author_meta('ID'), 30);?><?php kod_posted_by(); ?></div>
+					<div class="avatar">Autor:&nbsp;<?php kod_posted_by(); ?></div>
 					<div class="category"><span>Kategorija:</span><?php get_category_link(the_category(','));?></div>
-					<p><span class="date"><?php echo get_the_date( 'd, m, Y ' );?></span>,<span class="time-stamp"><?php echo the_time( 'H:i' );?></span></p>				
+					<p><span class="date"><?php echo get_the_date( 'd. m. Y ' );?></span>,<span class="time-stamp"><?php echo the_time( 'H:i' );?></span></p>				
 					<p class="comments"><i class="bi bi-chat-right-text-fill"></i><span class="comment-number"><?php echo get_comments_number($post->ID); ?></span></p>
-
+					<p class="comments"><i class="bi bi-eye-fill"></i><span><?= gt_get_post_view(); ?></span></p>
+					
+                       
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
 		</header><!-- .entry-header -->
@@ -73,7 +73,14 @@
 					<div class="divider-single-page"></div>
 					<div class="tags-share d-flex justify-content-between">
 						<div class="tags"><?php the_tags('', ''); ?></div>
-						<?php dynamic_sidebar('sidebar-3'); ?>
+						<div class="social-share">
+							<p>Podijeli na:</p>
+							<div class="social-btns">
+								<button class="button" data-sharer="facebook" data-hashtag="hashtag" data-url="<?php echo the_permalink()?>" data-title="<?php echo the_title()?>"><i class="fab fa-facebook"></i></button>
+								<button class="button" data-sharer="twitter" data-url="<?php echo the_permalink()?>" data-title="<?php echo the_title()?>"><i class="fab fa-twitter"></i></button>
+								<button class="button" data-sharer="linkedin" data-url="<?php echo the_permalink()?>" data-title="<?php echo the_title()?>"><i class="fab fa-linkedin"></i></button>
+							</div>
+						</div>
 					</div>
 					<div class="divider-single-page"></div>
 				</div><!-- .entry-content -->
@@ -87,18 +94,16 @@
 					<div class="col-lg-12 col-md-6 sm-padd-right">
 						<h5 style="text-transform: uppercase;">Najčitanije</h5>
 						<div class="red-divider"></div>
-						<?php dynamic_sidebar('sidebar-1') ?>
+						<!--<?php //dynamic_sidebar('sidebar-1') ?>-->
+						<?php pop_posts('5', '6'); ?>
 					</div>
 					<div class="col-lg-12 col-md-6 sm-padd-left">
 						<h5 style="text-transform: uppercase;">Najgledanije</h5>
 						<div class="red-divider"></div>
-						<?php dynamic_sidebar('sidebar-2') ?>
+						<!--<?php //dynamic_sidebar('sidebar-2') ?>-->
+						<?php pop_posts('4', '323'); ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>	<!-- end of row -->
-
-		
-
-
