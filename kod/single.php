@@ -2,8 +2,6 @@
 /**
  * The template for displaying all single posts
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
  * @package KOD
  */
 
@@ -15,13 +13,11 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
+		    gt_set_post_view();
 		
-			//gt_set_post_view();
 			//$categories = get_the_category();
 			$category = get_the_category(); 
 				echo '<h5 class="category-title"><a href="'. get_category_link($category[0]->term_id ) . '">'. $category[0]->cat_name.'</a></h5>';
-				
-		
 				
 			get_template_part( 'template-parts/content', get_post_type() );
 
